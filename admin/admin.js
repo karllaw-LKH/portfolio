@@ -1,7 +1,11 @@
 import {escapeHTML as e, safeURL, validateContent} from '../shared.js';
 const $=s=>document.querySelector(s), KEY='artist-studio-draft-v1', CONFIG='artist-studio-github-v1';
 let content,tab='profile',token='',baseSha='',busy=false,dirty=false;
-let config=JSON.parse(localStorage.getItem(CONFIG)||'null')||{owner:'karllawglacia-png',repo:'phd-portfolio',branch:'main'};
+let config=JSON.parse(localStorage.getItem(CONFIG)||'null')||{owner:'karllaw-LKH',repo:'portfolio',branch:'main'};
+if(config.owner==='karllawglacia-png'&&config.repo==='phd-portfolio'){
+  config={...config,owner:'karllaw-LKH',repo:'portfolio'};
+  localStorage.setItem(CONFIG,JSON.stringify(config));
+}
 let uploads=new Map();
 const titles={profile:'个人介绍',works:'作品管理',archive:'履历与成就',settings:'发布设置'};
 function status(s,error=false){$('#status').textContent=s;$('#status').style.color=error?'#99472f':'';}
