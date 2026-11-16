@@ -2,6 +2,10 @@
 
 简约艺术家作品集，为艺术实践、研究和 PhD 申请准备。原生 HTML/CSS/JavaScript，无需安装依赖或构建；GitHub Pages 托管。
 
+网站：https://karllaw-lkh.github.io/portfolio/  
+后台：https://karllaw-lkh.github.io/portfolio/admin/  
+仓库：https://github.com/karllaw-LKH/portfolio
+
 ## 页面
 
 - `/`：个人照片与介绍、作品筛选和详情、艺术陈述、履历与联系方式。
