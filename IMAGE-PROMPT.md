@@ -1,0 +1,5 @@
+# Generated placeholder imagery
+
+Tool: built-in `image_gen` (not API/CLI). File: `assets/studies.png`.
+
+Use case: stylized-concept. Create a single editorial photographic contact sheet with precisely four equal rectangular quadrants arranged 2x2, straight boundaries without gaps, each an independent image for a minimalist academic design portfolio, warm off-white and charcoal with muted moss green. Top left: an anonymous faceless sculptural plaster bust in profile, shoulders and head, on pale stone background, portrait placeholder, no recognizable real person. Top right: sculptural folded translucent paper structures on a table, light and shadow, research through material experimentation. Bottom left: close-up of a quiet tactile circular aluminum interaction prototype with cream paper notes, no text. Bottom right: an architectural installation of draped white fabric and slender metal rods in a bright gallery. Refined art school editorial photography, soft daylight, subtle grain, no logos, no text, no watermarks. Four quadrant images must remain wholly separate for cropping.
