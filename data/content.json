@@ -1,0 +1,27 @@
+{
+  "profile": {
+    "name": "Your Name",
+    "role": "Artist & researcher.",
+    "intro": "I work across objects, images, and spatial experiences. My practice begins with close observation — exploring how materials shape the ways we perceive and inhabit the world.\n\n[Sample introduction — replace with your own artist biography.]",
+    "location": "Based in [your city] · Open to conversations",
+    "portrait": "atlas:0",
+    "portraitCaption": "Illustrative portrait placeholder / AI-generated, replace with your photograph",
+    "statement": "A practice of noticing. A space between the familiar and the not-yet-known.",
+    "research": "[Artist statement / research interests]\nDescribe the questions that drive your practice, the materials you work with, and the conversations you hope your work opens up. This space can also introduce your proposed doctoral research.",
+    "email": "",
+    "contactNote": "For exhibitions, collaborations, and research conversations.",
+    "cv": "",
+    "socials": []
+  },
+  "works": [
+    {"id":"folded-light","title":"Folded light","year":"Sample work 01","category":"Material studies","medium":"Paper, light, spatial study","image":"atlas:1","description":"Illustrative project — replace with your own work.\n\nIntroduce the idea behind the work, your process, and how the material responds to light. Include the questions that emerged during making.","gallery":[],"attachment":"","video":"","demo":true},
+    {"id":"tactile-dialogues","title":"Tactile dialogues","year":"Sample work 02","category":"Objects","medium":"Aluminium, gesture, interaction","image":"atlas:2","description":"Illustrative project — replace with your own work.\n\nUse this space for a project narrative: context, artistic intention, method, your contribution, and outcomes.","gallery":[],"attachment":"","video":"","demo":true},
+    {"id":"soft-boundaries","title":"Soft boundaries","year":"Sample work 03","category":"Installation","medium":"Fabric, steel, site-responsive installation","image":"atlas:3","description":"Illustrative project — replace with your own work.\n\nAdd an installation overview, dimensions, materials, exhibition context, documentation, and collaborators where relevant.","gallery":[],"attachment":"","video":"","demo":true}
+  ],
+  "archive": [
+    {"id":"education","title":"Education","items":[{"year":"Year — Year","title":"[Your degree / programme]","detail":"Institution, location · Replace with your education","url":""}]},
+    {"id":"exhibitions","title":"Selected exhibitions","items":[{"year":"Year","title":"[Exhibition title]","detail":"Venue, location · Sample entry","url":""}]},
+    {"id":"awards","title":"Awards & recognition","items":[{"year":"Year","title":"[Award / achievement]","detail":"Awarding institution · Sample entry","url":""}]},
+    {"id":"research","title":"Research & publications","items":[{"year":"Year","title":"[Research project / publication]","detail":"Your role, research context, or citation · Sample entry","url":""}]}
+  ]
+}
