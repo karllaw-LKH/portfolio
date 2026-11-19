@@ -1,5 +1,5 @@
 import {messages,localize} from './i18n.js';
-import {escapeHTML as e, safeURL, validateContent} from './shared.js';
+import {escapeHTML as e, safeURL, validateContent, workCategories} from './shared.js?v=20261119-categories';
 const $ = s => document.querySelector(s);
 function art(value, alt, cls='') {
   const el = document.createElement('div'); el.className='art '+cls; el.role='img'; el.setAttribute('aria-label',alt);
@@ -23,8 +23,9 @@ function showProject(w){
 }
 $('#closeProject').onclick=()=>dialog.close();dialog.addEventListener('close',()=>opener?.focus());dialog.onclick=event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}};
 function renderWorks(){
-  $('#filters').replaceChildren();for(const category of ['All',...new Set(data.works.map(w=>w.category).filter(Boolean))]){const b=document.createElement('button');b.textContent=category==='All'?t('all'):category;b.setAttribute('aria-pressed',category===active);b.onclick=()=>{active=category;renderWorks();};$('#filters').append(b);}
-  $('#workGrid').replaceChildren();const selected=data.works.filter(w=>active==='All'||w.category===active);$('#empty').hidden=selected.length>0;
+  const categories=data.categories||[...new Map(data.works.flatMap(w=>workCategories(w)).map(c=>[c.id,c])).values()];
+  $('#filters').replaceChildren();for(const category of [{id:'All',label:t('all')},...categories]){const b=document.createElement('button');b.textContent=category.label;b.setAttribute('aria-pressed',category.id===active);b.onclick=()=>{active=category.id;renderWorks();};$('#filters').append(b);}
+  $('#workGrid').replaceChildren();const selected=data.works.filter(w=>active==='All'||workCategories(w,categories).some(c=>c.id===active));$('#empty').hidden=selected.length>0;
   for(const w of selected){const b=document.createElement('button');b.className='work-card';b.setAttribute('aria-label',t('view')+' '+w.title);b.append(art(w.image,w.title));const meta=document.createElement('div');meta.innerHTML=`<div class="work-meta"><h3>${e(w.title)}</h3><span>${e(w.year)}</span></div><p>${e(w.medium)}</p>${w.demo?'<span class="demo-label">ILLUSTRATIVE PROJECT / REPLACEABLE IMAGE</span>':''}`;b.append(meta);b.onclick=()=>showProject(w);$('#workGrid').append(b);}
 }
 function render(){

@@ -1,4 +1,4 @@
-import {escapeHTML as e, safeURL, validateContent} from '../shared.js';
+import {escapeHTML as e, safeURL, validateContent, workCategories} from '../shared.js?v=20261119-categories';
 const $=s=>document.querySelector(s), KEY='artist-studio-draft-v2', CONFIG='artist-studio-github-v1';
 let content,tab='profile',token='',baseSha='',busy=false,dirty=false;
 let config=JSON.parse(localStorage.getItem(CONFIG)||'null')||{owner:'karllaw-LKH',repo:'portfolio',branch:'main'};
@@ -9,7 +9,7 @@ if(config.owner==='karllawglacia-png'&&config.repo==='phd-portfolio'){
 let uploads=new Map();
 const titles={profile:'个人介绍',works:'作品管理',archive:'履历与成就',settings:'发布设置'};
 function status(s,error=false){$('#status').textContent=s;$('#status').style.color=error?'#99472f':'';}
-function save(){dirty=true;try{localStorage.setItem(KEY,JSON.stringify(content));status('草稿已保存到此浏览器。点击「发布到网站」后才会更新线上内容。');}catch{status('浏览器存储已满，请立即导出备份。',true);}}
+function save(){dirty=true;for(const w of content.works){if(Array.isArray(w.categoryIds)){const first=workCategories(w,content.categories)[0];w.category=first?.label||'';w.category_zh=first?.label_zh||'';}}try{localStorage.setItem(KEY,JSON.stringify(content));status('草稿已保存到此浏览器。点击「发布到网站」后才会更新线上内容。');}catch{status('浏览器存储已满，请立即导出备份。',true);}}
 const translatedKeys=new Set(['name','role','intro','location','portraitCaption','statement','research','contactNote','title','category','medium','description','detail','label','credits']);
 function field(obj,key,label,multiline=false){
  const wrap=document.createElement('div');wrap.className='field';const translated=translatedKeys.has(key);
@@ -21,6 +21,15 @@ function field(obj,key,label,multiline=false){
 function panel(title,parent=$('#editor')){const d=document.createElement('section');d.className='panel';const h=document.createElement('h2');h.textContent=title;d.append(h);parent.append(d);return d;}
 function button(text,fn,cls=''){const b=document.createElement('button');b.textContent=text;b.type='button';b.className=cls;b.onclick=fn;return b;}
 function uid(){return crypto.randomUUID();}
+function ensureCategories(){
+  if(!Array.isArray(content.categories))content.categories=[...new Map(content.works.flatMap(w=>workCategories(w)).map(c=>[c.id,c])).values()];
+  for(const w of content.works)if(!Array.isArray(w.categoryIds))w.categoryIds=workCategories(w,content.categories).map(c=>c.id);
+}
+function categoryChoices(w){
+  const group=document.createElement('fieldset');group.className='category-choices';const legend=document.createElement('legend');legend.textContent='所属分类（可多选，同一作品共用内容）';group.append(legend);
+  for(const c of content.categories){const label=document.createElement('label');label.className='check';const box=document.createElement('input');box.type='checkbox';box.checked=w.categoryIds.includes(c.id);box.onchange=()=>{w.categoryIds=box.checked?[...new Set([...w.categoryIds,c.id])]:w.categoryIds.filter(id=>id!==c.id);save();};label.append(box,c.label_zh||c.label);group.append(label);}
+  return group;
+}
 function asset(obj,key,label,accept,multiple=false){
   const box=document.createElement('div');box.append(field(obj,key,label,multiple));
   const row=document.createElement('div');row.className='upload-row';const file=document.createElement('input');file.type='file';file.accept=accept;file.multiple=multiple;file.setAttribute('aria-label','上传'+label);
@@ -38,8 +47,11 @@ function render(){
     const b=panel('02 / 艺术陈述与研究');b.append(field(p,'statement','艺术陈述标题',true),field(p,'research','创作理念 / PhD 研究方向',true),asset(p,'cv','履历 PDF','application/pdf'),field(p,'contactNote','联系区域说明'));
     const c=panel('03 / 社交与外部链接');p.socials.forEach((x,i)=>{const row=document.createElement('div');row.className='link-row';row.append(field(x,'label','显示名称'),field(x,'url','HTTPS 地址'),button('删除',()=>{p.socials.splice(i,1);save();render();}));c.append(row);});c.append(button('＋ 添加链接',()=>{p.socials.push({label:'',url:''});save();render();}));
   }else if(tab==='works'){
-    const info=document.createElement('p');info.className='hint';info.textContent='每个作品有独立详情。可以调整顺序，上传封面、详情图、视频及作品文件。';$('#editor').append(info,button('＋ 新建作品',()=>{content.works.unshift({id:uid(),title:'Untitled work',year:'',category:'',medium:'',image:'',description:'',gallery:[],attachment:'',video:'',demo:false});save();render();}));
-    content.works.forEach((w,i)=>{const d=document.createElement('section');d.className='item';const head=document.createElement('div');head.className='item-head';const h=document.createElement('h2');h.textContent=String(i+1).padStart(2,'0')+' / '+w.title;head.append(h,tools(content.works,i));d.append(head);const grid=document.createElement('div');grid.className='grid';for(const [k,l] of [['title','作品名称'],['year','年份'],['category','类别（用于首页筛选）'],['medium','媒介 / 材料 / 尺寸']])grid.append(field(w,k,l));d.append(grid,asset(w,'image','作品封面','image/png,image/jpeg,image/webp,image/avif'),field(w,'description','作品叙述 / 创作过程',true),field(w,'credits','藝術家 / 合作者 / 策展人'),gallery(w),asset(w,'video','视频地址 / 上传 MP4、WebM','video/mp4,video/webm'),asset(w,'attachment','作品附件 / PDF、ZIP、GLB、OBJ','.pdf,.zip,.glb,.gltf,.obj'));const label=document.createElement('label');label.className='check';const cb=document.createElement('input');cb.type='checkbox';cb.checked=!!w.demo;cb.onchange=()=>{w.demo=cb.checked;save();};label.append(cb,'这是示例作品（前台显示示例标记）');d.append(label);$('#editor').append(d);});
+    ensureCategories();const categoryPanel=panel('首页筛选分类');categoryPanel.classList.add('category-editor');const note=document.createElement('p');note.className='hint';note.textContent='每件作品可勾选多个分类；修改分类名称会同步用于所有作品。';categoryPanel.append(note);
+    content.categories.forEach((c,i)=>{const row=document.createElement('div');row.className='link-row';row.append(field(c,'label','分类名称'),button('删除分类',()=>{if(confirm('移除此分类？作品本身会保留。')){content.categories.splice(i,1);content.works.forEach(w=>w.categoryIds=w.categoryIds.filter(id=>id!==c.id));save();render();}}));categoryPanel.append(row);});
+    categoryPanel.append(button('＋ 添加分类',()=>{content.categories.push({id:uid(),label:'New category',label_zh:'新分類'});save();render();}));
+    const info=document.createElement('p');info.className='hint';info.textContent='每个作品有独立详情。可以调整顺序，上传封面、详情图、视频及作品文件。';$('#editor').append(info,button('＋ 新建作品',()=>{content.works.unshift({id:uid(),title:'Untitled work',year:'',categoryIds:[],medium:'',image:'',description:'',gallery:[],attachment:'',video:'',demo:false});save();render();}));
+    content.works.forEach((w,i)=>{const d=document.createElement('section');d.className='item';const head=document.createElement('div');head.className='item-head';const h=document.createElement('h2');h.textContent=String(i+1).padStart(2,'0')+' / '+w.title;head.append(h,tools(content.works,i));d.append(head);const grid=document.createElement('div');grid.className='grid';for(const [k,l] of [['title','作品名称'],['year','年份'],['medium','媒介 / 材料 / 尺寸']])grid.append(field(w,k,l));d.append(grid,categoryChoices(w),asset(w,'image','作品封面','image/png,image/jpeg,image/webp,image/avif'),field(w,'description','作品叙述 / 创作过程',true),field(w,'credits','藝術家 / 合作者 / 策展人'),gallery(w),asset(w,'video','视频地址 / 上传 MP4、WebM','video/mp4,video/webm'),asset(w,'attachment','作品附件 / PDF、ZIP、GLB、OBJ','.pdf,.zip,.glb,.gltf,.obj'));const label=document.createElement('label');label.className='check';const cb=document.createElement('input');cb.type='checkbox';cb.checked=!!w.demo;cb.onchange=()=>{w.demo=cb.checked;save();};label.append(cb,'这是示例作品（前台显示示例标记）');d.append(label);$('#editor').append(d);});
   }else if(tab==='archive'){
     $('#editor').append(button('＋ 添加履历栏目',()=>{content.archive.push({id:uid(),title:'New section',items:[]});save();render();}));
     content.archive.forEach((g,i)=>{const d=document.createElement('section');d.className='item';const head=document.createElement('div');head.className='item-head';head.append(field(g,'title','栏目名称（教育 / 展览 / 奖项 / 出版物等）'),tools(content.archive,i));d.append(head);g.items.forEach((x,j)=>{const row=document.createElement('div');row.className='item';const grid=document.createElement('div');grid.className='grid';grid.append(field(x,'year','年份'),field(x,'title','名称 / 标题'));row.append(grid,field(x,'detail','机构、地点、角色或成果描述',true),field(x,'url','证明 / 论文链接（可选）'),tools(g.items,j));d.append(row);});d.append(button('＋ 添加条目',()=>{g.items.push({year:'',title:'',detail:'',url:''});save();render();}));$('#editor').append(d);});
