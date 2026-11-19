@@ -1,27 +1,324 @@
 {
   "profile": {
-    "name": "Your Name",
-    "role": "Artist & researcher.",
-    "intro": "I work across objects, images, and spatial experiences. My practice begins with close observation — exploring how materials shape the ways we perceive and inhabit the world.\n\n[Sample introduction — replace with your own artist biography.]",
-    "location": "Based in [your city] · Open to conversations",
-    "portrait": "atlas:0",
-    "portraitCaption": "Illustrative portrait placeholder / AI-generated, replace with your photograph",
-    "statement": "A practice of noticing. A space between the familiar and the not-yet-known.",
-    "research": "[Artist statement / research interests]\nDescribe the questions that drive your practice, the materials you work with, and the conversations you hope your work opens up. This space can also introduce your proposed doctoral research.",
     "email": "",
-    "contactNote": "For exhibitions, collaborations, and research conversations.",
     "cv": "",
-    "socials": []
+    "socials": [],
+    "portrait": "assets/portfolio/7a0a9493777cd3.jpg",
+    "name": "Karl Law",
+    "name_zh": "羅嘉豪",
+    "role": "Artist & curator",
+    "role_zh": "藝術家・策展人",
+    "intro": "My artistic practice explores human perception of physical temperature and the narrative potential of material properties. My curatorial work examines how algorithms reshape identity, and begins with field research in cultural heritage sites.",
+    "intro_zh": "我的藝術創作以人們對物理溫度的感知及物性敘事為主要媒介。在展覽策劃方面，我關注演算法介入如何重建身份的理解，並以文化遺產場所的田野研究作為策展起點。",
+    "location": "Hong Kong, China",
+    "location_zh": "中國香港",
+    "portraitCaption": "Karl Law · Artist portrait",
+    "portraitCaption_zh": "羅嘉豪・個人肖像",
+    "statement": "Temperature, material narratives, and the reconstruction of memory.",
+    "statement_zh": "溫度、物性敘事與記憶的重塑。",
+    "research": "Through interactive installations, oral histories, and curatorial research, I explore how bodily experience and materials carry memory. My work connects everyday gestures with cultural histories, and questions how identity and historical narratives are reconstructed through algorithms.",
+    "research_zh": "透過互動裝置、口述歷史與策展研究，我探索身體經驗與材料如何承載記憶。創作把日常動作連結至文化歷史，並思考演算法如何重塑身份認同與歷史敘事。",
+    "contactNote": "For exhibition, curatorial, and research enquiries.",
+    "contactNote_zh": "歡迎展覽、策展及研究交流。"
   },
   "works": [
-    {"id":"folded-light","title":"Folded light","year":"Sample work 01","category":"Material studies","medium":"Paper, light, spatial study","image":"atlas:1","description":"Illustrative project — replace with your own work.\n\nIntroduce the idea behind the work, your process, and how the material responds to light. Include the questions that emerged during making.","gallery":[],"attachment":"","video":"","demo":true},
-    {"id":"tactile-dialogues","title":"Tactile dialogues","year":"Sample work 02","category":"Objects","medium":"Aluminium, gesture, interaction","image":"atlas:2","description":"Illustrative project — replace with your own work.\n\nUse this space for a project narrative: context, artistic intention, method, your contribution, and outcomes.","gallery":[],"attachment":"","video":"","demo":true},
-    {"id":"soft-boundaries","title":"Soft boundaries","year":"Sample work 03","category":"Installation","medium":"Fabric, steel, site-responsive installation","image":"atlas:3","description":"Illustrative project — replace with your own work.\n\nAdd an installation overview, dimensions, materials, exhibition context, documentation, and collaborators where relevant.","gallery":[],"attachment":"","video":"","demo":true}
+    {
+      "id": "folds-of-time",
+      "year": "2026",
+      "image": "assets/portfolio/efaca3a1b00b2c.jpg",
+      "gallery": [
+        "assets/portfolio/891aebb9167f55.jpg",
+        "assets/portfolio/f6ffafa0850758.jpg",
+        "assets/portfolio/80f838b817e70c.jpg",
+        "assets/portfolio/6e2842d81cb89a.jpg",
+        "assets/portfolio/8bf5f0f46c2493.jpg",
+        "assets/portfolio/ab42b0a63b0273.jpg",
+        "assets/portfolio/4dc7ab81f443af.jpg",
+        "assets/portfolio/410f47479cc754.jpg",
+        "assets/portfolio/8629681a6f9d1f.jpg"
+      ],
+      "attachment": "",
+      "video": "",
+      "demo": false,
+      "title": "What Smooths the Folds of Time?",
+      "title_zh": "是什麼？撫平時間的皺褶",
+      "category": "Interactive installation",
+      "category_zh": "互動裝置",
+      "medium": "Found garments, heated irons, thermosensitive materials · Dimensions variable",
+      "medium_zh": "回收衣物、加熱熨斗、溫感材料・尺寸可變",
+      "description": "Draw out — unfold — press — refold.\n\nSecondhand garments are imprinted with thermochromic ink to record their owners’ stories, relationships with ancestors, and experiences of parting. Visitors choose a folded garment, place it on an ironing board, and use the heat of an iron to reveal its hidden narratives. After ironing out its creases, they refold the garment and return it.\n\nThese four gestures evoke the return of memory and longing. The intimate act of folding clothes recalls everyday moments shared with loved ones who have passed away, inviting visitors to reenact a ritual of care and remembrance.\n\nExhibited in Bringing Death Back into Life:\nShenzhen · Sea World Culture and Arts Center, L3 Garden Pavilion · 25 July–11 October 2026\nShanghai · Shanghai Duolun Museum of Modern Art · 23 October–6 December 2026",
+      "description_zh": "抽出—打開—熨壓—摺疊。\n\n作品回收舊衣，以溫感油墨記錄衣服擁有者與先人的關係、故事及離別。觀眾可隨機抽取摺好的衣服，放在熨衣板上，打開並利用熨斗的熱力觀看隱藏的內容，同時把皺褶重新熨直。觀看後，再將衣服摺好放回。\n\n這四個反覆的動作回溯人的思念與記憶的回湧。面對死亡的真實情感，往往保存在逝者曾為我們做過的日常小事之中——例如摺衣服。作品邀請觀眾跟著做一次，重新感受照顧與告別。\n\n「將死亡帶回生活」展覽：\n深圳站・海上世界文化藝術中心 L3 花園展館・2026年7月25日—10月11日\n上海站・上海多倫現代美術館・2026年10月23日—12月6日",
+      "credits": "Artist: Karl Law",
+      "credits_zh": "藝術家：羅嘉豪"
+    },
+    {
+      "id": "floating-fish",
+      "year": "2026",
+      "image": "assets/portfolio/4ff302698dd12a.jpg",
+      "gallery": [
+        "assets/portfolio/9a163cbc5ea98c.jpg",
+        "assets/portfolio/59c72d9f0e699e.jpg",
+        "assets/portfolio/a8928a32e7a062.jpg",
+        "assets/portfolio/e2c4115a042a7b.jpg",
+        "assets/portfolio/7d854bf19b509c.jpg",
+        "assets/portfolio/44aa70a17f0b1f.jpg",
+        "assets/portfolio/ecddb49bdb352d.jpg",
+        "assets/portfolio/0f64d7873719d5.jpg",
+        "assets/portfolio/525710054a4646.jpg",
+        "assets/portfolio/33b44d0906067f.jpg"
+      ],
+      "attachment": "",
+      "video": "",
+      "demo": false,
+      "title": "Floating Fish",
+      "title_zh": "浮漁",
+      "category": "Public art",
+      "category_zh": "公共藝術",
+      "medium": "Steel wire mesh, windmill frameworks, tinted film · Dimensions variable",
+      "medium_zh": "鋼絲網、風車骨架、染色膠片・尺寸可變",
+      "description": "Inspired by windmills, Floating Fish transforms fish species common to Shenzhen’s Yantian waters into Lingnan’s traditional luck-bringing windmills. Hundreds of suspended fish turn in the wind, resembling a fishing net in motion and a school of swimming fish.\n\nIn Guangdong folk culture, windmills evoke fair winds and a change of fortune. For the Tanka people of Yantian, wind is both a challenge and a condition of livelihood: they dry fish in fine weather and draw on experience to navigate the lulls between storms. The fish turning with the wind reflect this wisdom of adapting to changing conditions and finding new possibilities through movement.\n\nThe project comprises a mechanical windmill installation, a group of windmill objects with oral history documentation, and a film developed from the collected oral histories.\n\nCommissioned by the Shenzhen Museum of Contemporary Art and Urban Planning for Urban Counterpoint: Shenzhen Times, September–December 2026.",
+      "description_zh": "《浮漁》的靈感源於風車。作品以深圳鹽田海域常見的魚種為原型，將魚改造為嶺南轉運風車的造型。風吹過，數百條魚在空中轉動，既像被風吹動的漁網，也像成群游動的魚。\n\n在廣東民間，轉運風車寓意順風、轉運。對鹽田蜑家人而言，風同樣是生活的核心：晴天在岸邊曬魚，颱風季則憑經驗預判天氣，在風浪間歇出海。風既是挑戰，也是謀生的條件。魚群借風轉動，對應著蜑家人「順風借力」的生存智慧；借風而行的魚，也呼應他們在不同海域之間流動、調整身位與尋找可能的經驗。\n\n作品由三部分組成：風車機械裝置、風車裝置組及口述歷史文獻整理，以及根據口述歷史文獻製作的影片。\n\n作品由深圳市當代藝術與城市規劃館委託創作，於2026年9月至12月「城市覆調——『深圳時間』當代藝術展」展出。",
+      "credits": "Artists: Karl Law, Beiya Yang, Zhen Yang, Wei Su",
+      "credits_zh": "藝術家：羅嘉豪、楊蓓雅、楊圳、蘇維"
+    },
+    {
+      "id": "recognition-reconstruction",
+      "year": "2026",
+      "image": "assets/portfolio/3318a80f5f2483.jpg",
+      "gallery": [
+        "assets/portfolio/9b44ccfd5f46a2.jpg",
+        "assets/portfolio/47aa2592bc15e3.jpg",
+        "assets/portfolio/c9b2040bfa43c7.jpg",
+        "assets/portfolio/224a265fa370be.jpg",
+        "assets/portfolio/088c7f5b88f552.jpg",
+        "assets/portfolio/dfd16b3459cced.jpg",
+        "assets/portfolio/c7e24da5e4f7d6.jpg",
+        "assets/portfolio/6f684c742b5a43.jpg",
+        "assets/portfolio/c470fd70b22bb9.jpg",
+        "assets/portfolio/d61cd9e794a2d9.jpg",
+        "assets/portfolio/01e6c480046359.jpg"
+      ],
+      "attachment": "",
+      "video": "",
+      "demo": false,
+      "title": "Recognition & Reconstruction",
+      "title_zh": "辨認・重塑",
+      "category": "Curatorial project",
+      "category_zh": "策展項目",
+      "medium": "The 4th Hailongtun International Image Culture Week · Youth Experimental Field",
+      "medium_zh": "第四屆海龍屯國際影像文化周・青年影像實驗場",
+      "description": "Artificial intelligence is no longer only a tool for documenting history; it is becoming a participant in historical narratives. By organising archives, generating images, and reconstructing absent scenes, it changes how the past is understood. When generated data outnumbers authentic records, the question extends from technology to memory, authenticity, and identity.\n\nRAY LC’s The Past Is the Future examines the gap between official cultural heritage archives and personal emotional memory. Works by Hera Yang and Beiya Yang locate memory in spaces, communities, relationships, and embodied experience. Liu Bowen’s Thermal Image Archive brings this enquiry into AI-generated visual evidence, asking whether images remain reliable guides to reality.\n\nRecognition & Reconstruction asks: if machines can create representations of the past, how will we recognise truth and reaffirm our identities within algorithmically reconstructed memories?\n\nThe curatorial project received the Outstanding Young Curator Award in the Youth Film Cultivation and Development Program.",
+      "description_zh": "人工智慧已不只是輔助人類記錄歷史的工具，它正逐漸成為歷史敘事的參與者。透過整理檔案、生成影像與模擬缺失場景，演算法重新組織我們理解過去的方式。當生成數據可能超過現實留下的真實記錄，問題便延伸至記憶、真實性與身份認同。\n\nRAY LC 的《過去即未來》透過官方文化遺產檔案與個人情感記憶之間的差異，揭示歷史記錄是經過選擇與保存的片段。Hera 楊美靜與 Beiya 楊蓓雅的作品提醒我們，記憶亦依附於空間、社區、人際關係與身體經驗。劉博文的《熱像檔案》進一步追問：當機器能創造類似真實記錄的視覺證據，我們是否仍能依靠圖像判斷現實？\n\n《辨認・重塑》邀請觀眾思考：當機器能夠創造過去，我們辨認真實的方式會如何改變？又如何在被演算法重塑的記憶中，重新確認自身的身份？\n\n此策展項目獲青年影像培育發展計劃「優秀青年策展人獎」。",
+      "credits": "Curator: Karl Law · Participating artists include RAY LC, Hera Yang, Beiya Yang, and Liu Bowen",
+      "credits_zh": "策展人：羅嘉豪・參展藝術家包括 RAY LC、楊美靜、楊蓓雅、劉博文"
+    },
+    {
+      "id": "bamboo-echo-chamber",
+      "year": "2025",
+      "image": "assets/portfolio/6a9ab3d92b9bea.jpg",
+      "gallery": [
+        "assets/portfolio/9a60416badc209.jpg",
+        "assets/portfolio/0d1dd91dcbc2ce.jpg",
+        "assets/portfolio/16c007d8a9555e.jpg",
+        "assets/portfolio/ecee53b5fcf53d.jpg",
+        "assets/portfolio/dc5bbcf7c2ce50.jpg",
+        "assets/portfolio/8d9511c8b91b4b.jpg"
+      ],
+      "attachment": "",
+      "video": "",
+      "demo": false,
+      "title": "Bamboo Echo Chamber",
+      "title_zh": "竹繭",
+      "category": "Interactive installation",
+      "category_zh": "互動裝置",
+      "medium": "Bamboo, mechanical axles, misting devices, thermochromic materials",
+      "medium_zh": "竹、機械軸承、水霧裝置、溫感材料",
+      "description": "Bamboo Echo Chamber traces the history of bamboo scaffolding in Hong Kong and asks how human warmth can be preserved amid technological change. It draws on the Chinese concept of the “heavenly circle and earthly square”, bringing algorithmic representation and research documentation together through a hand-driven installation.\n\nThe square represents geography and culture. Exposed mechanical axles embedded with documents form a tactile local chronicle, with bamboo carrying the memory of the land as architecture, tool, and symbol. The central circle produces drifting mist, evoking a mirage and the changing urban form of Hong Kong.\n\nVisitors turn bamboo axles to activate the misting system. Thermochromic 0101 codes change from transparent to black, revealing QR codes for further exploration. History, technology, and human action meet in a cycle of transformation.\n\nSelected for deTour 2025 at PMQ, Hong Kong; presented from 28 November 2025.",
+      "description_zh": "《竹繭》以竹棚在香港發展中的應用歷史為主要敘事，結合中國文化中「天圓地方」的概念與造型，探討科技進步中如何保持人文溫度，以及對理想未來的探索。裝置透過人力驅動，把演算法表現的「天圓」與研究文獻的「地方」結合。\n\n「方」象徵地理人文，外露的機械軸承嵌入文獻，形成可觸摸的「地方誌」。竹作為土地記憶的載體，承載建築、器具和符號的多重身份。「圓」喻意天道運行，中央空間以數控水霧製造流動雲靄，如同海市蜃樓，象徵對香港城市形態的探索。\n\n觀眾轉動竹軸啟動水霧裝置，溫感變色的0101編碼從透明變為黑色，同時出現可掃描的二維碼。歷史與未來在參與之中交融，呼應《易經》「觀乎天文以察時變，觀乎人文以化成天下」的智慧。\n\n作品入選 deTour 2025 設計節，於2025年11月28日起在香港元創方（PMQ）展出。",
+      "credits": "Glacia: Karl Law, Yuan Yi, Beiya Yang, Zhen Yang, Xiao Yuwei, Ge Xinmeng",
+      "credits_zh": "Glacia：羅嘉豪、袁易、楊蓓雅、楊圳、肖雨薇、葛馨萌"
+    }
   ],
   "archive": [
-    {"id":"education","title":"Education","items":[{"year":"Year — Year","title":"[Your degree / programme]","detail":"Institution, location · Replace with your education","url":""}]},
-    {"id":"exhibitions","title":"Selected exhibitions","items":[{"year":"Year","title":"[Exhibition title]","detail":"Venue, location · Sample entry","url":""}]},
-    {"id":"awards","title":"Awards & recognition","items":[{"year":"Year","title":"[Award / achievement]","detail":"Awarding institution · Sample entry","url":""}]},
-    {"id":"research","title":"Research & publications","items":[{"year":"Year","title":"[Research project / publication]","detail":"Your role, research context, or citation · Sample entry","url":""}]}
+    {
+      "id": "education",
+      "title": "Education",
+      "title_zh": "教育經歷",
+      "items": [
+        {
+          "year": "2025.04–05",
+          "title": "8th Advanced Curatorial Training Programme",
+          "title_zh": "第八期策展人高級研習班",
+          "detail": "Academy of Literary and Art, CFLAC",
+          "detail_zh": "中國文聯文藝研修院",
+          "url": ""
+        },
+        {
+          "year": "2021–2024",
+          "title": "Master of Fine Arts · Curatorial Studies and Artistic Creation",
+          "title_zh": "碩士・展覽策劃與藝術創作方向",
+          "detail": "School of Experimental Arts and Sci-tech Arts, Central Academy of Fine Arts",
+          "detail_zh": "中央美術學院實驗藝術與科技藝術學院",
+          "url": ""
+        },
+        {
+          "year": "2012–2016",
+          "title": "BA (Hons) in Visual Arts · Studio Arts",
+          "title_zh": "文學士（榮譽）・視覺藝術",
+          "detail": "Academy of Visual Arts, Hong Kong Baptist University",
+          "detail_zh": "香港浸會大學視覺藝術院",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "awards",
+      "title": "Awards & selections",
+      "title_zh": "獎項與入選",
+      "items": [
+        {
+          "year": "2026.08",
+          "title": "Outstanding Young Curator Award",
+          "title_zh": "優秀青年策展人獎",
+          "detail": "4th Hailongtun International Image Culture Week · Youth Film Cultivation and Development Program",
+          "detail_zh": "第四屆海龍屯國際影像文化周・青年影像培育發展計劃",
+          "url": ""
+        },
+        {
+          "year": "2026.04",
+          "title": "Kunpeng Award · Merit Award",
+          "title_zh": "鯤鵬獎・優秀獎",
+          "detail": "Shenzhen Global Design Awards",
+          "detail_zh": "深圳環球設計大獎",
+          "url": ""
+        },
+        {
+          "year": "2026",
+          "title": "NetDragon × CAFA Young Artist Residency",
+          "title_zh": "「網龍 × 央美」青年藝術家駐地全球徵集計劃",
+          "detail": "Selected artist",
+          "detail_zh": "入選藝術家",
+          "url": ""
+        },
+        {
+          "year": "2025.07",
+          "title": "Third Prize · International Call for Creative Ideas",
+          "title_zh": "國際創意徵集・三等獎",
+          "detail": "10th UABB (Shenzhen), Huaqiangbei Sub-Venue",
+          "detail_zh": "第十屆深港城市／建築雙城雙年展（深圳）華強北分展場",
+          "url": ""
+        },
+        {
+          "year": "2025.06",
+          "title": "LiMeng Emerging Artist Award",
+          "title_zh": "荔萌——荔灣青年藝術家培育計畫・獲選扶持藝術家獎",
+          "detail": "Guangzhou, China",
+          "detail_zh": "中國廣州",
+          "url": ""
+        },
+        {
+          "year": "2025.06",
+          "title": "Bronze Award",
+          "title_zh": "銅獎",
+          "detail": "7th Hong Kong Contemporary Design Awards",
+          "detail_zh": "第七屆香港當代設計獎",
+          "url": ""
+        },
+        {
+          "year": "2024.03",
+          "title": "Mingxi Scholarship",
+          "title_zh": "京校聯明曦獎學金",
+          "detail": "Hong Kong Students in Beijing",
+          "detail_zh": "北京香港學生獎學金",
+          "url": ""
+        },
+        {
+          "year": "2024",
+          "title": "New Youth Experimental Art Biennale",
+          "title_zh": "新青年實驗藝術雙年展",
+          "detail": "Selected artist",
+          "detail_zh": "入選藝術家",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "curatorial",
+      "title": "Further curatorial projects",
+      "title_zh": "其他策展項目",
+      "items": [
+        {
+          "year": "2025",
+          "title": "Potatso National Park Eco-Art Season",
+          "title_zh": "首屆普達措國家公園生態藝術季",
+          "detail": "Curator · Shangri-La",
+          "detail_zh": "策展人・香格里拉",
+          "url": ""
+        },
+        {
+          "year": "2025",
+          "title": "Anthropocene · Young Artists’ Cross-media Technology Art Exhibition",
+          "title_zh": "「人類紀」青年藝術家跨媒介科技藝術展",
+          "detail": "Curator",
+          "detail_zh": "策展人",
+          "url": ""
+        },
+        {
+          "year": "2023",
+          "title": "Macao International Art Biennale",
+          "title_zh": "澳門國際藝術雙年展",
+          "detail": "Executive curator",
+          "detail_zh": "執行策展人",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "roles",
+      "title": "Professional roles",
+      "title_zh": "專業職務",
+      "items": [
+        {
+          "year": "",
+          "title": "Hong Kong Arts Development Council",
+          "title_zh": "香港藝術發展局",
+          "detail": "Examiner",
+          "detail_zh": "審批員",
+          "url": ""
+        },
+        {
+          "year": "",
+          "title": "Arts and Cultural Development Foundation",
+          "title_zh": "藝文發展基金會",
+          "detail": "Head of Arts Research Committee",
+          "detail_zh": "藝術研究委員會主任",
+          "url": ""
+        },
+        {
+          "year": "",
+          "title": "Hong Kong Artists Association",
+          "title_zh": "香港美術家協會",
+          "detail": "Member",
+          "detail_zh": "會員",
+          "url": ""
+        },
+        {
+          "year": "",
+          "title": "HKU SPACE",
+          "title_zh": "香港大學專業進修學院",
+          "detail": "Guest lecturer · New Media Art Programme",
+          "detail_zh": "新媒體藝術課程客席講師",
+          "url": ""
+        },
+        {
+          "year": "2024",
+          "title": "Central Academy of Fine Arts",
+          "title_zh": "中央美術學院",
+          "detail": "Alumni liaison officer, Class of 2024",
+          "detail_zh": "2024屆校友聯絡員",
+          "url": ""
+        }
+      ]
+    }
   ]
 }
