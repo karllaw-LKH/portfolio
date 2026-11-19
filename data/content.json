@@ -19,7 +19,13 @@
     "research": "Through interactive installations, oral histories, and curatorial research, I explore how bodily experience and materials carry memory. My work connects everyday gestures with cultural histories, and questions how identity and historical narratives are reconstructed through algorithms.",
     "research_zh": "透過互動裝置、口述歷史與策展研究，我探索身體經驗與材料如何承載記憶。創作把日常動作連結至文化歷史，並思考演算法如何重塑身份認同與歷史敘事。",
     "contactNote": "For exhibition, curatorial, and research enquiries.",
-    "contactNote_zh": "歡迎展覽、策展及研究交流。"
+    "contactNote_zh": "歡迎展覽、策展及研究交流。",
+    "heroBanner": "assets/portfolio/0d1dd91dcbc2ce.jpg",
+    "heroBannerAlt": "Bamboo and mechanical structures: installation detail",
+    "heroBannerAlt_zh": "竹製構件與機械裝置細節",
+    "footerBanner": "assets/portfolio/0f64d7873719d5.jpg",
+    "footerBannerAlt": "Floating Fish: oral history display",
+    "footerBannerAlt_zh": "浮漁・口述歷史文獻展示"
   },
   "works": [
     {

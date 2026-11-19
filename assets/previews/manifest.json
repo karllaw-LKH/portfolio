@@ -1,4 +1,24 @@
 {
+  "assets/portfolio/0d1dd91dcbc2ce.jpg": [
+    {
+      "src": "assets/previews/0d1dd91dcbc2ce-640.webp",
+      "width": 640
+    },
+    {
+      "src": "assets/previews/0d1dd91dcbc2ce-1920.webp",
+      "width": 1920
+    }
+  ],
+  "assets/portfolio/0f64d7873719d5.jpg": [
+    {
+      "src": "assets/previews/0f64d7873719d5-640.webp",
+      "width": 640
+    },
+    {
+      "src": "assets/previews/0f64d7873719d5-1920.webp",
+      "width": 1920
+    }
+  ],
   "assets/portfolio/10563c51fb7ba8.jpg": [
     {
       "src": "assets/previews/10563c51fb7ba8-640.webp",

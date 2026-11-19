@@ -52,6 +52,8 @@ GitHub Pages 是静态托管，后台由表单编辑器 + GitHub API 组成，�
 
 視覺更新依照 [taste-skill](https://github.com/Leonxlnx/taste-skill) 的排版、邊界、色彩及微互動原則：首頁個人肖像、開放式作品圖網格、可展開履歷，以及單次的照片顯影效果。`assets/taste/` 只保留所需的原版元件，MIT授權保存在同一目錄。Host Grotesk字體本地託管於 `assets/fonts/`，OFL授權亦包含在內。網站沒有遠端字體或JavaScript依賴。
 
-作品及履歷資料仍以 `data/content.json` 為唯一編輯來源，後台操作方式不變。研究區與頁尾的圖片沿用現有作品詳情圖，毋須另外維護第二份作品內容。首頁圖片採用 `assets/previews/` 的響應式WebP，詳情保留原圖；未有預覽的新上傳圖片會直接顯示原檔，不需要編譯或額外步驟。維護者如需為新圖片產生壓縮版本，可在安裝Pillow的Python環境執行 `python scripts/build-previews.py`，再提交產出的圖片及manifest。
+作品及履歷資料仍以 `data/content.json` 為唯一編輯來源，後台操作方式不變。研究區圖片沿用現有作品詳情圖；首頁、履歷上方與頁尾的 Banner 則分別由後台設定，毋須另外維護第二份作品內容。首頁圖片採用 `assets/previews/` 的響應式WebP，詳情保留原圖；未有預覽的新上傳圖片會直接顯示原檔，不需要編譯或額外步驟。維護者如需為新圖片產生壓縮版本，可在安裝Pillow的Python環境執行 `python scripts/build-previews.py`，再提交產出的圖片及manifest。
+
+三個頁面圖片位置可在後台「個人介紹 → 頁面圖片與 Banner」獨立更新：`profile.heroBanner` 為首頁個人介紹背景；`profile.portrait` 為履歷上方的個人肖像，`portraitCaption` / `portraitCaption_zh` 直接顯示為肖像說明；`profile.footerBanner` 為「展覽、策展與研究交流」下方圖片。首頁和頁尾另有 `heroBannerAlt` / `footerBannerAlt` 及對應 `_zh` 圖片說明。舊版備份仍可讀取。新後台保留瀏覽器既有草稿，僅從線上補齊尚未存在的 Banner 設定，不覆蓋原有文字與肖像編輯。
 
 完整作品列表及展開後的履歷依內容自然增長，避免為了固定螢幕高度而裁切作品或限制日後更新。設計檢查記錄、瀏覽器暫存與截圖保存在已忽略的 `.taste-skill/`，不發布到公開網站。

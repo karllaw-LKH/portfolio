@@ -5,7 +5,9 @@ from PIL import Image,ImageOps
 
 root=Path(__file__).resolve().parents[1]
 data=json.loads((root/'data/content.json').read_text(encoding='utf8'))
-paths={data['profile']['portrait'],*[w['image'] for w in data['works']]}
+profile=data['profile']
+wide_paths={profile.get(key,'') for key in ['heroBanner','portrait','footerBanner']}
+paths={*wide_paths,*[w['image'] for w in data['works']]}
 for work_id,index in [('vanishing-route',0),('archive-point',2)]:
     work=next((w for w in data['works'] if w['id']==work_id),None)
     if work:paths.add(work['gallery'][index] if len(work['gallery'])>index else work['image'])
@@ -13,13 +15,13 @@ folder=root/'assets/previews';folder.mkdir(exist_ok=True)
 manifest={}
 for path in sorted(paths):
     source=root/path
-    if not path.startswith('assets/portfolio/') or not source.exists():continue
+    if not path.startswith(('assets/portfolio/','uploads/')) or not source.is_file():continue
     with Image.open(source) as im:
         image=ImageOps.exif_transpose(im).convert('RGB')
-        sizes=[640,1920] if path==data['profile']['portrait'] else [640,1280]
+        sizes=[640,1920] if path in wide_paths else [640,1280]
         sources=[]
         for width in sizes:
-            if path not in {data['profile']['portrait'],data['works'][0]['image']} and path in {w['image'] for w in data['works']}:
+            if path not in wide_paths and path!=next(iter(data['works']),{}).get('image') and path in {w['image'] for w in data['works']}:
                 output_width=min(width,image.width,int(image.height*4/3))
                 preview=ImageOps.fit(image,(output_width,round(output_width*3/4)),method=Image.Resampling.LANCZOS)
             else:

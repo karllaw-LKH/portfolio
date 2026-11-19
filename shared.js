@@ -11,6 +11,18 @@ export function workCategories(work, categories = []) {
   if (existing) return [existing];
   return work.category ? [{id:work.category,label:work.category,label_zh:work.category_zh||work.category}] : [];
 }
+export function pageImages(content) {
+  const p=content.profile;
+  const closingWork=content.works.find(w=>w.id==='archive-point')||content.works.at(-1);
+  return {
+    hero:p.heroBanner??p.portrait??'',
+    heroAlt:p.heroBannerAlt||p.portraitCaption||p.name,
+    portrait:p.portrait||'',
+    portraitCaption:p.portraitCaption||p.name,
+    footer:p.footerBanner??closingWork?.gallery?.[2]??closingWork?.image??'',
+    footerAlt:p.footerBannerAlt||closingWork?.title||p.name
+  };
+}
 export function validateContent(d) {
   if (!d || !d.profile || typeof d.profile.name !== 'string' || !Array.isArray(d.works) || !Array.isArray(d.archive)) throw Error('内容格式不正确：需要 profile、works 和 archive。');
   if (!d.profile.name.trim()) throw Error('姓名不能为空。');

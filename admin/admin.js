@@ -1,4 +1,4 @@
-import {escapeHTML as e, safeURL, validateContent, workCategories} from '../shared.js?v=20261119-categories';
+import {escapeHTML as e, safeURL, validateContent, workCategories, pageImages} from '../shared.js?v=20261119-banners';
 const $=s=>document.querySelector(s), KEY='artist-studio-draft-v2', CONFIG='artist-studio-github-v1';
 let content,tab='profile',token='',baseSha='',busy=false,dirty=false;
 let config=JSON.parse(localStorage.getItem(CONFIG)||'null')||{owner:'karllaw-LKH',repo:'portfolio',branch:'main'};
@@ -10,7 +10,7 @@ let uploads=new Map();
 const titles={profile:'个人介绍',works:'作品管理',archive:'履历与成就',settings:'发布设置'};
 function status(s,error=false){$('#status').textContent=s;$('#status').style.color=error?'#99472f':'';}
 function save(){dirty=true;for(const w of content.works){if(Array.isArray(w.categoryIds)){const first=workCategories(w,content.categories)[0];w.category=first?.label||'';w.category_zh=first?.label_zh||'';}}try{localStorage.setItem(KEY,JSON.stringify(content));status('草稿已保存到此浏览器。点击「发布到网站」后才会更新线上内容。');}catch{status('浏览器存储已满，请立即导出备份。',true);}}
-const translatedKeys=new Set(['name','role','intro','location','portraitCaption','statement','research','contactNote','title','category','medium','description','detail','label','credits']);
+const translatedKeys=new Set(['name','role','intro','location','portraitCaption','heroBannerAlt','footerBannerAlt','statement','research','contactNote','title','category','medium','description','detail','label','credits']);
 function field(obj,key,label,multiline=false){
  const wrap=document.createElement('div');wrap.className='field';const translated=translatedKeys.has(key);
  const add=(k,title)=>{const s=document.createElement('label');s.textContent=title;const input=document.createElement(multiline?'textarea':'input');input.id='field-'+crypto.randomUUID();s.htmlFor=input.id;input.value=obj[k]||'';input.oninput=()=>{obj[k]=input.value;save();};wrap.append(s,input);};
@@ -21,6 +21,14 @@ function field(obj,key,label,multiline=false){
 function panel(title,parent=$('#editor')){const d=document.createElement('section');d.className='panel';const h=document.createElement('h2');h.textContent=title;d.append(h);parent.append(d);return d;}
 function button(text,fn,cls=''){const b=document.createElement('button');b.textContent=text;b.type='button';b.className=cls;b.onclick=fn;return b;}
 function uid(){return crypto.randomUUID();}
+function ensurePageImages(){
+  const p=content.profile,images=pageImages(content);
+  if(p.heroBanner===undefined)p.heroBanner=images.hero;
+  if(p.heroBannerAlt===undefined)p.heroBannerAlt=images.heroAlt;
+  if(p.heroBannerAlt_zh===undefined)p.heroBannerAlt_zh=p.portraitCaption_zh||p.name_zh||p.name;
+  if(p.footerBanner===undefined)p.footerBanner=images.footer;
+  if(p.footerBannerAlt===undefined)p.footerBannerAlt=images.footerAlt;
+}
 function ensureCategories(){
   if(!Array.isArray(content.categories))content.categories=[...new Map(content.works.flatMap(w=>workCategories(w)).map(c=>[c.id,c])).values()];
   for(const w of content.works)if(!Array.isArray(w.categoryIds))w.categoryIds=workCategories(w,content.categories).map(c=>c.id);
@@ -43,9 +51,10 @@ function tools(list,i){const d=document.createElement('div');d.className='tools'
 function render(){
   $('#pageTitle').textContent=titles[tab];$('#editor').replaceChildren();document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
   if(tab==='profile'){
-    const p=content.profile;const a=panel('01 / 基本资料');const grid=document.createElement('div');grid.className='grid';for(const [k,l] of [['name','姓名 / 艺术家名称'],['role','身份 / 一句话定位'],['location','所在地 / 当前状态'],['email','联系邮箱']])grid.append(field(p,k,l));a.append(grid,field(p,'intro','首页个人介绍',true),asset(p,'portrait','个人图片（上传后替换示意图）','image/png,image/jpeg,image/webp,image/avif'),field(p,'portraitCaption','图片说明'));
-    const b=panel('02 / 艺术陈述与研究');b.append(field(p,'statement','艺术陈述标题',true),field(p,'research','创作理念 / PhD 研究方向',true),asset(p,'cv','履历 PDF','application/pdf'),field(p,'contactNote','联系区域说明'));
-    const c=panel('03 / 社交与外部链接');p.socials.forEach((x,i)=>{const row=document.createElement('div');row.className='link-row';row.append(field(x,'label','显示名称'),field(x,'url','HTTPS 地址'),button('删除',()=>{p.socials.splice(i,1);save();render();}));c.append(row);});c.append(button('＋ 添加链接',()=>{p.socials.push({label:'',url:''});save();render();}));
+    ensurePageImages();const p=content.profile;const a=panel('01 / 基本资料');const grid=document.createElement('div');grid.className='grid';for(const [k,l] of [['name','姓名 / 艺术家名称'],['role','身份 / 一句话定位'],['location','所在地 / 当前状态'],['email','联系邮箱']])grid.append(field(p,k,l));a.append(grid,field(p,'intro','首页个人介绍',true));
+    const media=panel('02 / 頁面圖片與 Banner');const note=document.createElement('p');note.className='hint';note.textContent='三個圖片位置各自獨立：首頁個人介紹背景、履歷上方個人肖像、頁尾交流區下方 Banner。可填寫現有圖片地址或上傳新圖片。';media.append(note,asset(p,'heroBanner','首頁 Banner（個人介紹背景）','image/png,image/jpeg,image/webp,image/avif'),field(p,'heroBannerAlt','首頁 Banner 圖片說明'),asset(p,'portrait','履歷上方個人肖像 Banner','image/png,image/jpeg,image/webp,image/avif'),field(p,'portraitCaption','個人肖像顯示文字'),asset(p,'footerBanner','頁尾 Banner（展覽、策展與研究交流下方）','image/png,image/jpeg,image/webp,image/avif'),field(p,'footerBannerAlt','頁尾 Banner 圖片說明'));
+    const b=panel('03 / 艺术陈述与研究');b.append(field(p,'statement','艺术陈述标题',true),field(p,'research','创作理念 / PhD 研究方向',true),asset(p,'cv','履历 PDF','application/pdf'),field(p,'contactNote','联系区域说明'));
+    const c=panel('04 / 社交与外部链接');p.socials.forEach((x,i)=>{const row=document.createElement('div');row.className='link-row';row.append(field(x,'label','显示名称'),field(x,'url','HTTPS 地址'),button('删除',()=>{p.socials.splice(i,1);save();render();}));c.append(row);});c.append(button('＋ 添加链接',()=>{p.socials.push({label:'',url:''});save();render();}));
   }else if(tab==='works'){
     ensureCategories();const categoryPanel=panel('首页筛选分类');categoryPanel.classList.add('category-editor');const note=document.createElement('p');note.className='hint';note.textContent='每件作品可勾选多个分类；修改分类名称会同步用于所有作品。';categoryPanel.append(note);
     content.categories.forEach((c,i)=>{const row=document.createElement('div');row.className='link-row';row.append(field(c,'label','分类名称'),button('删除分类',()=>{if(confirm('移除此分类？作品本身会保留。')){content.categories.splice(i,1);content.works.forEach(w=>w.categoryIds=w.categoryIds.filter(id=>id!==c.id));save();render();}}));categoryPanel.append(row);});
@@ -88,4 +97,4 @@ $('#import').onchange=async event=>{try{const f=event.target.files[0];if(!f)retu
 $('#restore').onclick=async()=>{if(!confirm('放弃当前草稿，重新读取线上内容？'))return;try{const r=await fetch('../data/content.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('读取失败');content=validateContent(await r.json());uploads.clear();baseSha='';localStorage.setItem(KEY,JSON.stringify(content));dirty=false;render();status('已重新读取当前部署的内容。');}catch(err){status(err.message,true);}};
 $('#preview').onclick=()=>{if(uploads.size){status('新上传文件尚未发布，草稿预览中可能暂时无法显示；发布后即可查看。');}localStorage.setItem('studio-preview',JSON.stringify(content));window.open('../?preview=1','_blank','noopener');};
 window.addEventListener('beforeunload',event=>{if(uploads.size||busy){event.preventDefault();event.returnValue='';}});
-try{const draft=localStorage.getItem(KEY);if(draft){content=validateContent(JSON.parse(draft));dirty=true;status('已恢复此浏览器中的草稿。');}else{const r=await fetch('../data/content.json',{cache:'no-cache'});if(!r.ok)throw Error('无法读取内容');content=validateContent(await r.json());status('内容已加载。修改后自动保留本地草稿。');}render();}catch(err){status('读取内容失败：'+err.message,true);}
+try{const draft=localStorage.getItem(KEY);if(draft){content=validateContent(JSON.parse(draft));try{const response=await fetch('../data/content.json',{cache:'no-cache'});if(response.ok){const online=validateContent(await response.json());for(const key of ['heroBanner','heroBannerAlt','heroBannerAlt_zh','footerBanner','footerBannerAlt','footerBannerAlt_zh'])if(content.profile[key]===undefined&&online.profile[key]!==undefined)content.profile[key]=online.profile[key];}}catch{}dirty=true;status('已恢复此浏览器中的草稿。Banner 可在「頁面圖片與 Banner」設定，原有編輯保留。');}else{const r=await fetch('../data/content.json',{cache:'no-cache'});if(!r.ok)throw Error('无法读取内容');content=validateContent(await r.json());status('内容已加载。修改后自动保留本地草稿。');}render();}catch(err){status('读取内容失败：'+err.message,true);}
