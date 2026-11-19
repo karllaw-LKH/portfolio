@@ -25,7 +25,7 @@ $('#closeProject').onclick=()=>dialog.close();dialog.addEventListener('close',()
 function renderWorks(){
   $('#filters').replaceChildren();for(const category of ['All',...new Set(data.works.map(w=>w.category).filter(Boolean))]){const b=document.createElement('button');b.textContent=category==='All'?t('all'):category;b.setAttribute('aria-pressed',category===active);b.onclick=()=>{active=category;renderWorks();};$('#filters').append(b);}
   $('#workGrid').replaceChildren();const selected=data.works.filter(w=>active==='All'||w.category===active);$('#empty').hidden=selected.length>0;
-  for(const w of selected){const b=document.createElement('button');b.className='work-card';b.setAttribute('aria-label',t('view')+' '+w.title);b.append(art(w.image,w.title));const t=document.createElement('div');t.innerHTML=`<div class="work-meta"><h3>${e(w.title)}</h3><span>${e(w.year)}</span></div><p>${e(w.medium)}</p>${w.demo?'<span class="demo-label">ILLUSTRATIVE PROJECT / REPLACEABLE IMAGE</span>':''}`;b.append(t);b.onclick=()=>showProject(w);$('#workGrid').append(b);}
+  for(const w of selected){const b=document.createElement('button');b.className='work-card';b.setAttribute('aria-label',t('view')+' '+w.title);b.append(art(w.image,w.title));const meta=document.createElement('div');meta.innerHTML=`<div class="work-meta"><h3>${e(w.title)}</h3><span>${e(w.year)}</span></div><p>${e(w.medium)}</p>${w.demo?'<span class="demo-label">ILLUSTRATIVE PROJECT / REPLACEABLE IMAGE</span>':''}`;b.append(meta);b.onclick=()=>showProject(w);$('#workGrid').append(b);}
 }
 function render(){
   data=localize(original,lang);document.documentElement.lang=lang==='zh'?'zh-Hant':'en';
