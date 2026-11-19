@@ -46,4 +46,12 @@ GitHub Pages 是静态托管，后台由表单编辑器 + GitHub API 组成，�
 
 ## 可维护性
 
-前台：`index.html`、`style.css`、`app.js`。后台：`admin/`。共用转义、URL 白名单和内容验证：`shared.js`。无第三方脚本、追踪或远程字体。保持相对地址，支持 GitHub 项目子目录。后台上传和内容通过 Git API 创建 tree + commit，再非强制更新分支，避免并发时覆盖线上更改。
+前台：`index.html`、`style.css`、`app.js`。后台：`admin/`。共用转义、URL 白名单和内容验证：`shared.js`。不加载远程脚本、追踪或远程字体。保持相对地址，支持 GitHub 项目子目录。后台上传和内容通过 Git API 创建 tree + commit，再非强制更新分支，避免并发时覆盖线上更改。
+
+## 視覺設計與維護
+
+視覺更新依照 [taste-skill](https://github.com/Leonxlnx/taste-skill) 的排版、邊界、色彩及微互動原則：首頁個人肖像、開放式作品圖網格、可展開履歷，以及單次的照片顯影效果。`assets/taste/` 只保留所需的原版元件，MIT授權保存在同一目錄。Host Grotesk字體本地託管於 `assets/fonts/`，OFL授權亦包含在內。網站沒有遠端字體或JavaScript依賴。
+
+作品及履歷資料仍以 `data/content.json` 為唯一編輯來源，後台操作方式不變。研究區與頁尾的圖片沿用現有作品詳情圖，毋須另外維護第二份作品內容。首頁圖片採用 `assets/previews/` 的響應式WebP，詳情保留原圖；未有預覽的新上傳圖片會直接顯示原檔，不需要編譯或額外步驟。維護者如需為新圖片產生壓縮版本，可在安裝Pillow的Python環境執行 `python scripts/build-previews.py`，再提交產出的圖片及manifest。
+
+完整作品列表及展開後的履歷依內容自然增長，避免為了固定螢幕高度而裁切作品或限制日後更新。設計檢查記錄、瀏覽器暫存與截圖保存在已忽略的 `.taste-skill/`，不發布到公開網站。

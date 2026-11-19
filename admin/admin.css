@@ -2,3 +2,6 @@
 
 div.field{margin-bottom:20px}div.field>label{display:block;font-size:13px;margin:0 0 7px}.translation-field{margin-top:12px;border-left:2px solid #a9b497;padding-left:14px}
 body{font-size:16px}.hint,legend,#status{font-size:14px}.category-choices{border:1px solid var(--line);margin:0 0 24px;padding:14px 18px;display:flex;gap:10px 24px;flex-wrap:wrap}.category-choices legend{padding:0 7px}.category-choices .check{margin:3px 0}.category-choices input{width:18px;height:18px}.category-editor .link-row{grid-template-columns:1fr auto;align-items:start}div.field>label,.translation-field span,label.field span{font-size:14px}
+
+/* Palette shared with the artist portfolio. */
+:root{--paper:#f7f7f5;--ink:#242923;--muted:#5d655e;--line:#d7dbd5;--green:#43564b}body{font-family:'Host Grotesk','Microsoft JhengHei',sans-serif}h1{font-family:inherit}.item{background:#fff;border-color:#d7dbd5}.panel h2{font-size:22px}input:not([type=checkbox]),textarea,select{background:#fff;font-size:16px}button,.import{min-height:44px}.studio span,.sidebar-foot,.hint,#status{font-size:14px}
